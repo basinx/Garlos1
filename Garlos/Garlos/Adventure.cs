@@ -16,6 +16,8 @@ namespace Garlos
         public Character character;
         string choice;
         int currentroom = 0;
+        SaveMaker saver = new SaveMaker();
+
         public Adventure()
         {
             game = new GameData();
@@ -35,13 +37,16 @@ namespace Garlos
             {
                 foreach (int cs in r.spawnindex)
                 {
-                    foreach (Creature ctr in r.creatures)
+                    enemiesinroom = r.creatures.Count(p => p.templateindex == cs);
+                    sameinroom = r.spawnindex.Count(sm => sm == cs);
+                    /*foreach (Creature ctr in r.creatures)
                     {
                         if(ctr.name == game.creatures[cs].name)
                         {
                             enemiesinroom++;
                         }
                     }
+                    
                     foreach (int csim in r.spawnindex)
                     {
                         if(cs == csim)
@@ -49,6 +54,7 @@ namespace Garlos
                             sameinroom++;
                         }
                     }
+                    */
                     if(sameinroom > enemiesinroom)
                     {
                         r.creatures.Add((Creature)game.creatures[cs].Clone());
@@ -183,6 +189,14 @@ namespace Garlos
                     if (Utility.WordMatch(choice, "inventory", picked))
                     {
                         character.displayinv();
+                        picked = true;
+                    }
+                    if (Utility.WordMatch(choice, "save", picked))
+                    {
+                        
+                        saver.SaveData(character, character.name + ".character");
+                        Console.Write("\nData Saved.\n");
+                        character.DisplayStats();
                         picked = true;
                     }
 

@@ -336,6 +336,11 @@ namespace Garlos
 
                     if (Utility.WordMatch(choice, "description", picked))
                     {
+                        if(game.rooms[currentroom].description == "New Room Description")
+                        {
+                            game.rooms[currentroom].description = "";
+                        }
+                        Console.Write(game.rooms[currentroom].description);
                         Console.Write("\nType lines for the rooms description?  use /d for done and /c to clear.");
                         choice = Console.ReadLine();
                         while (choice != "/d")
@@ -346,7 +351,15 @@ namespace Garlos
                             }
                             else
                             {
-                                game.rooms[currentroom].description += "\n" + choice;
+                                if(game.rooms[currentroom].description == "")
+                                {
+                                    game.rooms[currentroom].description += choice;
+                                }
+                                else
+                                {
+                                    game.rooms[currentroom].description += "\n" + choice;
+                                }
+                                
                             }
                             Console.Write(game.rooms[currentroom].description);
                             Console.Write("\nType lines for the rooms description?  use /d for done and /c to clear.");
@@ -364,6 +377,12 @@ namespace Garlos
                     }
                     if (Utility.WordMatch(choice, "save", picked))
                     {
+                        if (Utility.NotBlank(Utility.GetKeyWord(choice)))
+                        {
+                            filename = Utility.GetKeyWord(choice) + ".game";
+                            game.filename = Utility.GetKeyWord(choice) + ".game";
+                        }
+
                         saver.SaveGameData(game, filename);
                         Console.WriteLine("Game File " + filename + " saved!");
                     }

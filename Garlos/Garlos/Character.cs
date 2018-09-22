@@ -298,7 +298,7 @@ namespace Garlos
                             if (Utility.WordMatch(choice, "yes", picked))
                             {
                                 picked = true;
-                                saver.SaveData(this, "savedata.xml");
+                                saver.SaveData(this, name + ".character");
                                 Console.Write("\nData Saved.\n");
                                 DisplayStats();
                                 

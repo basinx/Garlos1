@@ -16,6 +16,7 @@ namespace Garlos
         {
             SaveMaker saver = new SaveMaker();
             string choice = "";
+            string option = "";
             Adventure adventure = new Adventure();
             bool picked = false;
             
@@ -24,7 +25,7 @@ namespace Garlos
             
             while (!Utility.WordMatch(choice, "exit", picked))
             {
-                Console.Write("NEW - create a new character\nVIEW - view current character\nCONTINUE - load previous character\nROOM - enter the room editor\nEXIT - exit game\nCREATURE - enter the creature editor\nBEGIN - begin adventure\n\nWelcome to Garlos.  What will you do?");
+                Console.Write("NEW - create a new character\nVIEW - view current character\nLOAD - load previous character\nROOM - enter the room editor\nEXIT - exit game\nCREATURE - enter the creature editor\nBEGIN - begin adventure\n\nWelcome to Garlos.  What will you do?");
                 choice = Console.ReadLine();
                 strlen = choice.Length;
 
@@ -46,11 +47,41 @@ namespace Garlos
                     picked = true;
                         
                 }
-                if (Utility.WordMatch(choice, "continue", picked))
+                if (Utility.WordMatch(choice, "load", picked))
                 {
-                    Console.WriteLine("Your character will be loaded!");
-                    character = saver.LoadData(character, "savedata.xml");
-                    character.DisplayStats();
+                    if (Utility.NotBlank(Utility.GetKeyWord(choice)))
+                    {
+                        option = Utility.GetKeyWord(choice);
+
+                    }
+                    else
+                    {
+                        Console.Write("\nLoad which character?");
+                        option = Console.ReadLine();
+                        
+                    }
+                    option += ".character";
+                    if (Utility.NotBlank(option))
+                    {
+                        if (File.Exists(option))
+                        {
+                            try
+                            {
+                                Console.WriteLine("Your character will be loaded!");
+                                character = saver.LoadData(character, option);
+                                character.DisplayStats();
+                            }
+                            catch
+                            {
+                                Console.WriteLine("\nNot a valid character file!\n");
+                            }
+
+                        }
+                        else
+                        {
+                            Console.WriteLine("\nCharacter does not exit.\n");
+                        }
+                    }
                     picked = true;
                         
                 }
