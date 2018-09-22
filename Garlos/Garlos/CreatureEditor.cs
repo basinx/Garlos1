@@ -35,7 +35,7 @@ namespace Garlos
             {
                 Console.WriteLine("Editing creature file: " + filename);
                 ccreature.DisplayStats();
-                Console.Write("\n\nWhat do you want to do?");
+                Console.Write("\n\n< > to change creature, 'help' for help, What do you want to do?");
                 choice = Console.ReadLine();
                 picked = false;
                 if(Utility.NotBlank(choice))
@@ -48,7 +48,7 @@ namespace Garlos
                         picked = true;
                         finished = true;
                     }
-                    if (Utility.WordMatch(choice, "next", picked) || Utility.WordMatch(choice, "forward", picked))
+                    if (Utility.WordMatch(choice, "next", picked) || Utility.WordMatch(choice, "forward", picked) || Utility.WordMatch(choice, ".", picked) || Utility.WordMatch(choice, ">", picked))
                     {
                         valuew = creatures.IndexOf(ccreature) + 1;
                         if (creatures.ElementAtOrDefault(valuew) != null)
@@ -176,6 +176,7 @@ namespace Garlos
                     }
                     if(Utility.WordMatch(choice, "help", picked))
                     {
+                        Console.WriteLine("level = change creature level");
                         Console.WriteLine("name = change creature name");
                         Console.WriteLine("description = change creature description");
                         Console.WriteLine("hp = change creature hp");
@@ -364,7 +365,7 @@ namespace Garlos
                         picked = true;
                     }
 
-                    if (Utility.WordMatch(choice, "last", picked) || Utility.WordMatch(choice, "previous", picked) || Utility.WordMatch(choice, "back", picked))
+                    if (Utility.WordMatch(choice, "last", picked) || Utility.WordMatch(choice, "previous", picked) || Utility.WordMatch(choice, "back", picked) || Utility.WordMatch(choice, ",", picked) || Utility.WordMatch(choice, "<", picked))
                     {
                         valuew = creatures.IndexOf(ccreature) - 1;
                         if (creatures.ElementAtOrDefault(valuew) != null)
