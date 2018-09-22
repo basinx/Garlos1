@@ -1,0 +1,187 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ArrayOfRoom xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <Room>
+    <name>Abandoned Hallway</name>
+    <description>You stand in an abandoned hallway
+There is a dimly lit light on the wall fueled by some unknown source
+There is a door to the north at the end of the hall
+and a door to your south leading outside.</description>
+    <roomID>0</roomID>
+    <northexit>1</northexit>
+    <southexit>4</southexit>
+    <eastexit>-1</eastexit>
+    <westexit>-1</westexit>
+  </Room>
+  <Room>
+    <name>A small study</name>
+    <description>You are in a small study
+There is a shitty desk here with papers strewn about
+There is a grandfather clock on the wall stuck at 4:15
+There is a small door to the south and a double door to the east.</description>
+    <roomID>1</roomID>
+    <northexit>-1</northexit>
+    <southexit>0</southexit>
+    <eastexit>2</eastexit>
+    <westexit>-1</westexit>
+  </Room>
+  <Room>
+    <name>A studio</name>
+    <description>You are in a wide open art studio.
+There are paintings strewn about the floor and sitting
+on easles.  There is a door to the west and the studio opens into a hallway to the north.</description>
+    <roomID>2</roomID>
+    <northexit>3</northexit>
+    <southexit>-1</southexit>
+    <eastexit>-1</eastexit>
+    <westexit>1</westexit>
+  </Room>
+  <Room>
+    <name>Northern Hallway</name>
+    <description>This hallways has pictures of Grandmother Jones on the wall
+She is ugly as fuck and you hate her by default.
+The hall continues south to the studio.
+There are doors to the east and west.</description>
+    <roomID>3</roomID>
+    <northexit>-1</northexit>
+    <southexit>2</southexit>
+    <eastexit>5</eastexit>
+    <westexit>6</westexit>
+  </Room>
+  <Room>
+    <name>The outer porch</name>
+    <description>You stand upon the outer porch
+There is a mat on the ground that says 'fuck off'
+You sense there could be black people around
+A door stands to your north, foreboding.</description>
+    <roomID>4</roomID>
+    <northexit>0</northexit>
+    <southexit>-1</southexit>
+    <eastexit>-1</eastexit>
+    <westexit>-1</westexit>
+  </Room>
+  <Room>
+    <name>Rochester Room</name>
+    <description>This room is full of soiled linens.  Surely the maid should
+make her way here.  The only exit is the door to the west.</description>
+    <roomID>5</roomID>
+    <northexit>-1</northexit>
+    <southexit>-1</southexit>
+    <eastexit>-1</eastexit>
+    <westexit>3</westexit>
+  </Room>
+  <Room>
+    <name>A clean bedroom</name>
+    <description>This is a neat bedroom with a thick red bed in the middle.
+There are armoires about and a nightstand with a cookie cake on it.
+You can't have the cake.
+There is a door to the east and you might be able to sneak out the window to the west.</description>
+    <roomID>6</roomID>
+    <northexit>-1</northexit>
+    <southexit>-1</southexit>
+    <eastexit>3</eastexit>
+    <westexit>7</westexit>
+  </Room>
+  <Room>
+    <name>The SideYard</name>
+    <description>You are in the sideyard.  Careful there could be
+mad doggos in here, or cat burglars, or black people!
+You better climb back in the east window before you get rape mugged.</description>
+    <roomID>7</roomID>
+    <northexit>-1</northexit>
+    <southexit>-1</southexit>
+    <eastexit>6</eastexit>
+    <westexit>-1</westexit>
+  </Room>
+  <Room xsi:nil="true" />
+  <Room xsi:nil="true" />
+  <Room xsi:nil="true" />
+  <Room xsi:nil="true" />
+  <Room xsi:nil="true" />
+  <Room xsi:nil="true" />
+  <Room xsi:nil="true" />
+  <Room xsi:nil="true" />
+  <Room xsi:nil="true" />
+  <Room xsi:nil="true" />
+  <Room xsi:nil="true" />
+  <Room xsi:nil="true" />
+  <Room xsi:nil="true" />
+  <Room xsi:nil="true" />
+  <Room xsi:nil="true" />
+  <Room xsi:nil="true" />
+  <Room xsi:nil="true" />
+  <Room xsi:nil="true" />
+  <Room xsi:nil="true" />
+  <Room xsi:nil="true" />
+  <Room xsi:nil="true" />
+  <Room xsi:nil="true" />
+  <Room xsi:nil="true" />
+  <Room xsi:nil="true" />
+  <Room xsi:nil="true" />
+  <Room xsi:nil="true" />
+  <Room xsi:nil="true" />
+  <Room xsi:nil="true" />
+  <Room xsi:nil="true" />
+  <Room xsi:nil="true" />
+  <Room xsi:nil="true" />
+  <Room xsi:nil="true" />
+  <Room xsi:nil="true" />
+  <Room xsi:nil="true" />
+  <Room xsi:nil="true" />
+  <Room xsi:nil="true" />
+  <Room xsi:nil="true" />
+  <Room xsi:nil="true" />
+  <Room xsi:nil="true" />
+  <Room xsi:nil="true" />
+  <Room xsi:nil="true" />
+  <Room xsi:nil="true" />
+  <Room xsi:nil="true" />
+  <Room xsi:nil="true" />
+  <Room xsi:nil="true" />
+  <Room xsi:nil="true" />
+  <Room xsi:nil="true" />
+  <Room xsi:nil="true" />
+  <Room xsi:nil="true" />
+  <Room xsi:nil="true" />
+  <Room xsi:nil="true" />
+  <Room xsi:nil="true" />
+  <Room xsi:nil="true" />
+  <Room xsi:nil="true" />
+  <Room xsi:nil="true" />
+  <Room xsi:nil="true" />
+  <Room xsi:nil="true" />
+  <Room xsi:nil="true" />
+  <Room xsi:nil="true" />
+  <Room xsi:nil="true" />
+  <Room xsi:nil="true" />
+  <Room xsi:nil="true" />
+  <Room xsi:nil="true" />
+  <Room xsi:nil="true" />
+  <Room xsi:nil="true" />
+  <Room xsi:nil="true" />
+  <Room xsi:nil="true" />
+  <Room xsi:nil="true" />
+  <Room xsi:nil="true" />
+  <Room xsi:nil="true" />
+  <Room xsi:nil="true" />
+  <Room xsi:nil="true" />
+  <Room xsi:nil="true" />
+  <Room xsi:nil="true" />
+  <Room xsi:nil="true" />
+  <Room xsi:nil="true" />
+  <Room xsi:nil="true" />
+  <Room xsi:nil="true" />
+  <Room xsi:nil="true" />
+  <Room xsi:nil="true" />
+  <Room xsi:nil="true" />
+  <Room xsi:nil="true" />
+  <Room xsi:nil="true" />
+  <Room xsi:nil="true" />
+  <Room xsi:nil="true" />
+  <Room xsi:nil="true" />
+  <Room xsi:nil="true" />
+  <Room xsi:nil="true" />
+  <Room xsi:nil="true" />
+  <Room xsi:nil="true" />
+  <Room xsi:nil="true" />
+  <Room xsi:nil="true" />
+</ArrayOfRoom>
