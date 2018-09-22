@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ArrayOfCreature xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <Creature>
+    <name>goblin</name>
+    <description>a small goblin fuddles about</description>
+    <templateindex>0</templateindex>
+    <level>1</level>
+    <hp>5</hp>
+    <maxhp>5</maxhp>
+    <attack>5</attack>
+    <defense>5</defense>
+    <gold>3</gold>
+    <exp>2</exp>
+    <hostile>false</hostile>
+    <faction>basic</faction>
+    <cattributes />
+  </Creature>
+  <Creature>
+    <name>Slime</name>
+    <description>A dangerous slime is dangerously sliming</description>
+    <templateindex>1</templateindex>
+    <level>1</level>
+    <hp>15</hp>
+    <maxhp>15</maxhp>
+    <attack>6</attack>
+    <defense>3</defense>
+    <gold>12</gold>
+    <exp>20</exp>
+    <hostile>false</hostile>
+    <faction>basic</faction>
+    <cattributes>
+      <CreatureAttribute>
+        <atname>slime</atname>
+        <atvalue>2</atvalue>
+      </CreatureAttribute>
+    </cattributes>
+  </Creature>
+  <Creature>
+    <name>Innkeeper Stevens</name>
+    <description>Innkeeper Stevens stands behind a kiosk, selling beds and cell phones.</description>
+    <templateindex>2</templateindex>
+    <level>6</level>
+    <hp>200</hp>
+    <maxhp>200</maxhp>
+    <attack>25</attack>
+    <defense>8</defense>
+    <gold>60</gold>
+    <exp>100</exp>
+    <hostile>false</hostile>
+    <faction>shops</faction>
+    <cattributes>
+      <CreatureAttribute>
+        <atname>Inn</atname>
+        <atvalue>5</atvalue>
+      </CreatureAttribute>
+    </cattributes>
+  </Creature>
+  <Creature>
+    <name>Mugger</name>
+    <description>A mugger is here to steal your wallet.</description>
+    <templateindex>3</templateindex>
+    <level>1</level>
+    <hp>30</hp>
+    <maxhp>30</maxhp>
+    <attack>15</attack>
+    <defense>2</defense>
+    <gold>40</gold>
+    <exp>15</exp>
+    <hostile>true</hostile>
+    <faction>asshats</faction>
+    <cattributes />
+  </Creature>
+</ArrayOfCreature>

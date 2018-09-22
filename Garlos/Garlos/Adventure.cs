@@ -87,6 +87,51 @@ namespace Garlos
                         }
                         picked = true;
                     }
+                    if (Utility.WordMatch(choice, "east", picked))
+                    {
+                        nextroom = game.rooms[currentroom].eastexit;
+                        if (nextroom == -1)
+                        {
+                            Console.Write("\nYou cannot go that way.\n");
+                            System.Threading.Thread.Sleep(600);
+                        }
+                        else
+                        {
+                            currentroom = nextroom;
+                            Console.WriteLine("OK\n");
+                        }
+                        picked = true;
+                    }
+                    if (Utility.WordMatch(choice, "west", picked))
+                    {
+                        nextroom = game.rooms[currentroom].westexit;
+                        if (nextroom == -1)
+                        {
+                            Console.Write("\nYou cannot go that way.\n");
+                            System.Threading.Thread.Sleep(600);
+                        }
+                        else
+                        {
+                            currentroom = nextroom;
+                            Console.WriteLine("OK\n");
+                        }
+                        picked = true;
+                    }
+                    if (Utility.WordMatch(choice, "south", picked))
+                    {
+                        nextroom = game.rooms[currentroom].southexit;
+                        if (nextroom == -1)
+                        {
+                            Console.Write("\nYou cannot go that way.\n");
+                            System.Threading.Thread.Sleep(600);
+                        }
+                        else
+                        {
+                            currentroom = nextroom;
+                            Console.WriteLine("OK\n");
+                        }
+                        picked = true;
+                    }
                     if (Utility.WordMatch(choice, "stay", picked))
                     {
                         bool foundkeeper = false;
@@ -134,51 +179,7 @@ namespace Garlos
                         }
                         picked = true;
                     }
-                    if (Utility.WordMatch(choice, "east", picked))
-                    {
-                        nextroom = game.rooms[currentroom].eastexit;
-                        if (nextroom == -1)
-                        {
-                            Console.Write("\nYou cannot go that way.\n");
-                            System.Threading.Thread.Sleep(600);
-                        }
-                        else
-                        {
-                            currentroom = nextroom;
-                            Console.WriteLine("OK\n");
-                        }
-                        picked = true;
-                    }
-                    if (Utility.WordMatch(choice, "west", picked))
-                    {
-                        nextroom = game.rooms[currentroom].westexit;
-                        if (nextroom == -1)
-                        {
-                            Console.Write("\nYou cannot go that way.\n");
-                            System.Threading.Thread.Sleep(600);
-                        }
-                        else
-                        {
-                            currentroom = nextroom;
-                            Console.WriteLine("OK\n");
-                        }
-                        picked = true;
-                    }
-                    if (Utility.WordMatch(choice, "south", picked))
-                    {
-                        nextroom = game.rooms[currentroom].southexit;
-                        if (nextroom == -1)
-                        {
-                            Console.Write("\nYou cannot go that way.\n");
-                            System.Threading.Thread.Sleep(600);
-                        }
-                        else
-                        {
-                            currentroom = nextroom;
-                            Console.WriteLine("OK\n");
-                        }
-                        picked = true;
-                    }
+
                     if (Utility.WordMatch(choice, "inventory", picked))
                     {
                         character.displayinv();

@@ -35,7 +35,7 @@ namespace Garlos
             }
             else
             {
-                Console.WriteLine("Property " + a + "added to " + name);
+                Console.WriteLine("Property " + a + " added to " + name);
                 attributes.Add(new Garlos.ItemAttribute(a, v));
             }
         }

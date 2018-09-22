@@ -40,7 +40,7 @@ namespace Garlos
             
             while (!filechosen)
             {
-                Console.Write("\nWhat File Name?");
+                Console.Write("\nGame File Name?");
 
                 gamefilename = Console.ReadLine();
                 gamefilename += ".game";
@@ -96,7 +96,7 @@ namespace Garlos
             while (!finished)
             {
                 DisplayRoom();
-                Console.Write("\nWhat do you want to edit?  Type Done to save & exit.");
+                Console.Write("\nWhat do you want to edit?  'help' for commands, 'done' to save & exit.");
                 choice = Console.ReadLine();
                 
                 picked = false;
@@ -321,8 +321,16 @@ namespace Garlos
                     }
                     if (Utility.WordMatch(choice, "name", picked))
                     {
-                        Console.Write("\nWhat should the rooms name be?");
-                        game.rooms[currentroom].name = Console.ReadLine();
+                        if (Utility.NotBlank(Utility.GetKeyWord(choice)))
+                        {
+                            game.rooms[currentroom].name = Utility.GetKeyWord(choice);
+                        }
+                        else
+                        {
+                            Console.Write("\nWhat should the rooms name be?");
+                            game.rooms[currentroom].name = Console.ReadLine();
+                            
+                        }
                         picked = true;
                     }
 
@@ -347,7 +355,18 @@ namespace Garlos
                         picked = true;
 
                     }
-
+                    if (Utility.WordMatch(choice, "help", picked))
+                    {
+                        Console.WriteLine("Save = save game file");
+                        Console.WriteLine("Name = change room name");
+                        Console.WriteLine("Desc = change room description");
+                        Console.WriteLine("North, East, West, South = More to adjascent room with option to create new");
+                    }
+                    if (Utility.WordMatch(choice, "save", picked))
+                    {
+                        saver.SaveGameData(game, filename);
+                        Console.WriteLine("Game File " + filename + " saved!");
+                    }
                     if (Utility.WordMatch(choice, "done", picked))
                     {
 
@@ -355,6 +374,7 @@ namespace Garlos
                         picked = true;
                         finished = true;
                     }
+
                     if (picked)
                     {
 
@@ -549,7 +569,7 @@ namespace Garlos
                     game.rooms[firstnullroom].northexit = currentroom;
                 }
                 Console.WriteLine("New room created at index " + firstnullroom);
-                Console.Write("\nSwitch to this room now?\n");
+                Console.Write("\nSwitch to this room now?");
                 choice = Console.ReadLine();
                 if (Utility.WordMatch(choice, "yes", false))
                 {

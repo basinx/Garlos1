@@ -7,7 +7,10 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Garlos", "Garlos\Garlos.csp
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{638F0E69-AE38-42A0-A037-89A3C1EC9D3E}"
 	ProjectSection(SolutionItems) = preProject
+		Garlos\creature.creatures = Garlos\creature.creatures
 		Garlos\new.xml = Garlos\new.xml
+		Garlos\sample.game = Garlos\sample.game
+		Garlos\savedata.xml = Garlos\savedata.xml
 	EndProjectSection
 EndProject
 Global
