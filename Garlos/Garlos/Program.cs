@@ -25,7 +25,7 @@ namespace Garlos
             
             while (!Utility.WordMatch(choice, "exit", picked))
             {
-                Console.Write("NEW - create a new character\nVIEW - view current character\nLOAD - load previous character\nROOM - enter the room editor\nEXIT - exit game\nCREATURE - enter the creature editor\nBEGIN - begin adventure\n\nWelcome to Garlos.  What will you do?");
+                Console.Write("NEW - create a new character\nVIEW - view current character\nLOAD - load previous character\nROOM - enter the room editor\nITEM - enter the item editor\nEXIT - exit game\nCREATURE - enter the creature editor\nBEGIN - begin adventure\n\nWelcome to Garlos.  What will you do?");
                 choice = Console.ReadLine();
                 strlen = choice.Length;
 
@@ -92,6 +92,15 @@ namespace Garlos
                     Console.WriteLine("Welcome to Edit Mode.\n");                
                     roomy.LoadFile();
                     roomy.MainMenu();
+                    picked = true;
+                }
+                if (Utility.WordMatch(choice, "item", picked))
+                {
+                    Console.WriteLine("OK lets edit items!");
+                    ItemEditor itemy = new ItemEditor();
+                    Console.WriteLine("Welcome to Edit Mode.\n");
+                    itemy.LaunchEditor();
+                    itemy.MainMenu();
                     picked = true;
                 }
                 if (Utility.WordMatch(choice, "creature", picked))

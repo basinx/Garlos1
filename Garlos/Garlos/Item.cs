@@ -9,7 +9,9 @@ namespace Garlos
     public class Item
     {
         public string name = "new object";
+        public int value = 10;
         public string type = "none";
+        public int templateindex = 0;
 
         public List<ItemAttribute> attributes = new List<ItemAttribute>();
         
@@ -18,7 +20,11 @@ namespace Garlos
         {
             
         }
-
+        public Item(string n, string t)
+        {
+            name = n;
+            type = t;
+        }
         public Item(string n, string t, string a, int v)
         {
             name = n;
@@ -52,6 +58,27 @@ namespace Garlos
                 }
             }
             Console.Write(")");
+        }
+
+        //for use in the editor
+        public void DisplayStats()
+        {
+            Utility.Colorize("Item Index:#c" + templateindex);
+            Utility.Colorize("Name:#c" + name + "\t#wType:#c" + type);
+            Console.WriteLine("Attributes:");
+            foreach (ItemAttribute a in attributes)
+            {
+                Utility.Colorize("#y" + a.atname + "\t#b" + a.atvalue + "#w");
+            }
+            
+        }
+
+        public void DisplayAttributes()
+        {
+            foreach (ItemAttribute ia in attributes)
+            {
+                Utility.Colorize("Attribute: #y" + ia.atname + "\t#wScore: #b" + ia.atvalue);
+            }
         }
 
         public void FullDetails()

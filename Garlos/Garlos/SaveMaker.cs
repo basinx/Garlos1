@@ -48,11 +48,29 @@ namespace Garlos
             writerz.Close();
         }
 
+        public void SaveItems(List<Item> obj, string filename)
+        {
+            File.Delete(filename);
+            XmlSerializer serialz = new XmlSerializer(obj.GetType());
+            TextWriter writerz = new StreamWriter(filename);
+            serialz.Serialize(writerz, obj);
+            writerz.Close();
+        }
+
         public List<Creature> LoadCreatures(List<Creature> obj, string filename)
         {
             XmlSerializer serialz = new XmlSerializer(obj.GetType());
             FileStream stream = new FileStream(filename, FileMode.Open, FileAccess.Read, FileShare.Read);
             obj = (List<Creature>)serialz.Deserialize(stream);
+            stream.Close();
+            return obj;
+        }
+
+        public List<Item> LoadItems(List<Item> obj, string filename)
+        {
+            XmlSerializer serialz = new XmlSerializer(obj.GetType());
+            FileStream stream = new FileStream(filename, FileMode.Open, FileAccess.Read, FileShare.Read);
+            obj = (List<Item>)serialz.Deserialize(stream);
             stream.Close();
             return obj;
         }

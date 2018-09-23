@@ -76,6 +76,7 @@
     <Compile Include="Adventure.cs" />
     <Compile Include="CreatureAttribute.cs" />
     <Compile Include="CreatureSpawn.cs" />
+    <Compile Include="ItemEditor.cs" />
     <Compile Include="Parser.cs" />
     <Compile Include="GameData.cs" />
     <Compile Include="CreatureEditor.cs" />

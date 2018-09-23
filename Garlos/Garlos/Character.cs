@@ -326,8 +326,8 @@ namespace Garlos
         public void calcstats()
         {
             List<Item> eqinv = new List<Item>();
-            attack = str;
-            defense = dex;
+            attack = (int)(str / 2);
+            defense = (int)(dex / 4);
             if (weapon != null) { eqinv.Add(weapon); }
             if (armor != null) { eqinv.Add(armor); }
             if (shield != null) { eqinv.Add(shield); }

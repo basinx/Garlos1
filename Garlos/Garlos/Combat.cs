@@ -43,7 +43,7 @@ namespace Garlos
             {
                 if(a.atname == "damage")
                 {
-                    rngattack = rng.Next(1, a.atvalue + cplayer.str / 2);
+                    rngattack = rng.Next(1, a.atvalue + (cplayer.str / 2));
                     rngdefense = rng.Next(0, ct.defense);
                     dam = rngattack - rngdefense;
                     if(dam < 1)
@@ -85,7 +85,7 @@ namespace Garlos
                 {
                     if(a.atname == "defense")
                     {
-                        rngdefense = rng.Next(1, a.atvalue);
+                        rngdefense = rng.Next(1, a.atvalue + (cplayer.dex / 4));
                         dam -= rngdefense;
                         if(dam <= 0) { dam = 1; }
                         Console.WriteLine(i.name + " reduced damage by " + rngdefense + " : " + dam + " damage");

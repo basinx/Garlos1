@@ -129,7 +129,7 @@ namespace Garlos
                         }
                         else
                         {
-                            Console.WriteLine("No description specified");
+                            Console.WriteLine("Invalid selection");
                         }
                         picked = true;
                     }
@@ -327,7 +327,7 @@ namespace Garlos
                         {
                             if (Int32.TryParse(keyw, out valuew))
                             {
-                                ccreature.exp = valuew;
+                                
                                 if(creatures.ElementAtOrDefault(valuew) != null)
                                 {
                                     
