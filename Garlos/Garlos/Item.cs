@@ -9,6 +9,7 @@ namespace Garlos
     public class Item
     {
         public string name = "new object";
+        public string desc = "description";
         public int value = 10;
         public string type = "none";
         public int templateindex = 0;
@@ -23,6 +24,12 @@ namespace Garlos
         public Item(string n, string t)
         {
             name = n;
+            type = t;
+        }
+        public Item(string n, string d, string t)
+        {
+            name = n;
+            desc = d;
             type = t;
         }
         public Item(string n, string t, string a, int v)

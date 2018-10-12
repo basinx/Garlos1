@@ -74,6 +74,7 @@ namespace Garlos
                 {
                     pass1 += " ";
                 }
+                //count colorizes and add spaces in their place because they are 2 characters that do not display on screen
                 counter = pass1.Where(x => x == '#').Count();
                 for(int CharLength = 0; CharLength < counter; CharLength++)
                 {
