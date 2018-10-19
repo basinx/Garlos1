@@ -24,11 +24,12 @@ namespace Garlos
 
         public void AddCol1(string line)
         {
-            left += line + "\n";
+            left += CreateTab(line) + "\n";
         }
         public void AddCol2(string line)
         {
-            right += line + "\n";
+
+            right += CreateTab(line) + "\n";
         }
 
         public void Clear()
@@ -37,6 +38,70 @@ namespace Garlos
             right = "";
         }
 
+        public string CreateTab(string totabs)
+        {
+            string finalstring = "";
+            string substr = totabs;
+            string checkstring;
+            int poundcounts;
+            StringBuilder sb = new StringBuilder();
+            int poundz = substr.IndexOf("ƒ");
+            int pound = poundz + 1;
+            int floor;
+            int spaces;
+
+            while (poundz != -1)
+            {
+                sb.Clear();
+                sb.Append(substr);
+                checkstring = substr.Substring(0, pound);
+                pound -= (checkstring.Where(x => x == '#').Count()) * 2;
+                floor = (int)(Math.Floor((double)pound / (double)8));
+                
+                spaces = ((floor + 1) * 8) - pound;
+                
+                sb[poundz] = ' ';
+                poundz++;
+                for (int i = 0; i < spaces - 1; i++)
+                {
+                    sb.Insert(poundz, ' ');
+                    poundz++;
+                }
+                
+                substr = sb.ToString();
+                
+                finalstring += substr.Substring(0, poundz);
+                
+                substr = substr.Substring(poundz);
+                
+                poundz = substr.IndexOf("ƒ");
+                pound = poundz + 1;
+            }
+            finalstring += substr;
+
+            return finalstring;
+            /*
+                while (pound != -1)
+                {
+                    
+
+
+                    substr = substr.Substring(pound + 2, substr.Length - (pound + 2));
+                    pound = substr.IndexOf("#");
+
+
+                }
+
+                Console.Write(substr + "\n");
+                Console.ForegroundColor = ConsoleColor.White;
+            }
+            else
+            {
+
+                Console.WriteLine(tocolor);
+            }
+            */
+        }
         public void Display()
         {
             int counter;
@@ -164,7 +229,7 @@ namespace Garlos
                 }
 
             }
-            Utility.Colorize(pass1 + pass2);
+            Utility.Colorize(pass1 + "#w" + pass2);
             pass1 = "";
             //finish writing if there is more in the right column
             while (Utility.NotBlank(right) && Utility.NotBlank(pass2) && Utility.NotBlank(col2))//add on the right side

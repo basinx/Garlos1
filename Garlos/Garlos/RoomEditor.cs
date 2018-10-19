@@ -420,10 +420,10 @@ namespace Garlos
             parse.AddCol1("Room Name:" + game.rooms[currentroom].name);
             parse.AddCol1("Room Description:\n" + game.rooms[currentroom].description);
             parse.AddCol1("Room ID:" + game.rooms[currentroom].roomID);
-            parse.AddCol1("Room North:" + game.rooms[currentroom].northexit);
-            parse.AddCol1("Room South:" + game.rooms[currentroom].southexit);
-            parse.AddCol1("Room East:" + game.rooms[currentroom].eastexit);
-            parse.AddCol1("Room West:" + game.rooms[currentroom].westexit);
+            parse.AddCol1("#rRoom North:#w" + game.rooms[currentroom].northexit);
+            parse.AddCol1("#rRoom South:#w" + game.rooms[currentroom].southexit);
+            parse.AddCol1("#rRoom East:#w" + game.rooms[currentroom].eastexit);
+            parse.AddCol1("#rRoom West:#w" + game.rooms[currentroom].westexit);
             parse.AddCol1("Exits:" + game.rooms[currentroom].roomexits());
             parse.AddCol1("#cThis room contains:");
             parse.AddCol2("#cCreature file: " + game.creaturefile);
@@ -433,10 +433,10 @@ namespace Garlos
                 parse.AddCol2("Creature Description: " + game.ccreature.description);
                 parse.AddCol2("Creature Index:" + game.ccreature.templateindex);
                 parse.AddCol2("Creature HP:" + game.ccreature.maxhp);
-                parse.AddCol2("Creature Attack: " + game.ccreature.attack);
-                parse.AddCol2("Creature Gold: " + game.ccreature.gold);
-                parse.AddCol2("Creature Exp: " + game.ccreature.exp);
-                parse.AddCol2("Creature Faction: " + game.ccreature.faction);
+                parse.AddCol2("#rCreature Attack: #w" + game.ccreature.attack);
+                parse.AddCol2("#rCreature Gold: #w" + game.ccreature.gold);
+                parse.AddCol2("#rCreature Exp: #w" + game.ccreature.exp);
+                parse.AddCol2("#rCreature Faction: #w" + game.ccreature.faction);
                 parse.AddCol2("< or > to change 'place', 'kill', 'spawn' to set a spawn, 'cspawn' to clear spawns, 'cf' to choose creature file");
             }
             for (int i = 0; i < game.rooms[currentroom].items.Count(); i++)

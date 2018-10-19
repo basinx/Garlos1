@@ -9,6 +9,15 @@ namespace Garlos
 {
     public class CreatureEditor
     {
+
+
+        List<Item> items = new List<Item>();
+        Item citem;
+        int itemindex;
+        string itemfile;
+        
+
+
         List<Creature> creatures = new List<Creature>();
         Creature ccreature;
         int count;
@@ -22,6 +31,8 @@ namespace Garlos
         bool finished;
         SaveMaker csaver =  new SaveMaker();
 
+
+
         public CreatureEditor()
         {
 
@@ -33,9 +44,7 @@ namespace Garlos
             finished = false;
             while(!finished)
             {
-                Console.WriteLine("Editing creature file: " + filename);
-                ccreature.DisplayStats();
-                Console.Write("\n\n< > to change creature, 'help' for help, What do you want to do?");
+                DisplayDeets();
                 choice = Console.ReadLine();
                 picked = false;
                 if(Utility.NotBlank(choice))
@@ -133,6 +142,40 @@ namespace Garlos
                         }
                         picked = true;
                     }
+                    if (Utility.WordMatch(choice, "ifile", picked) || Utility.WordMatch(choice, "itemfile", picked))
+                    {
+                        if (Utility.NotBlank(Utility.GetKeyWord(choice)))
+                        {
+                            itemfile = Utility.GetKeyWord(choice);
+                            itemfile += ".items";
+                        }
+                        else
+                        {
+                            Console.Write("\nWhat item file will you load?");
+                            itemfile = Console.ReadLine();
+                            itemfile += ".items";
+                        }
+
+                        if (File.Exists(itemfile))
+                        {
+                            try
+                            {
+                                items = csaver.LoadItems(items, itemfile);
+                                citem = items.First();
+                                itemindex = items.IndexOf(citem);
+                                Console.WriteLine("Item file " + itemfile + " loaded.  Currently viewing " + citem.name + " at index " + citem.templateindex);
+                                picked = true;
+                            }
+                            catch
+                            {
+                                Console.WriteLine(itemfile + " is not a valid item file!");
+                            }
+                        }
+                        else
+                        {
+                            Console.WriteLine("File " + itemfile + " does not exist");
+                        }
+                    } 
                     if (Utility.WordMatch(choice, "attributes", picked))
                     {
                         string newat;
@@ -425,7 +468,58 @@ namespace Garlos
             }
 
         }
+        public void DisplayDeets()
+        {
 
+            
+            
+            
+
+            Parser parse = new Parser();
+            parse.splitsize = (int)(Console.WindowWidth / 2.2);
+
+
+            parse.AddCol1("#cEditing creature file: #w" + filename);
+            parse.AddCol1("Name: " + ccreature.name + "ƒIndex: " + ccreature.templateindex + "ƒLevel: " + ccreature.level);
+            parse.AddCol1("Desc: " + ccreature.description);
+            parse.AddCol1("HP:#r " + ccreature.hp + "#wƒMP:#r " + ccreature.maxhp);
+            parse.AddCol1("Damage: #r" + ccreature.attack + "ƒ#wDef: #r" + ccreature.defense);
+            parse.AddCol1("Gold: #y" + ccreature.gold + "ƒ#wExp: #c" + ccreature.exp);
+            parse.AddCol1("Hostile: #r" + ccreature.hostile + "ƒ#wFaction: #b" + ccreature.faction);
+            foreach (CreatureAttribute ca in ccreature.cattributes)
+            {
+                parse.AddCol1("Attribute: #y" + ca.atname + "ƒ#wScore: #b" + ca.atvalue);
+            }
+            foreach (Item ci in ccreature.citems)
+            {
+                Utility.Colorize("Item: #y" + ci.name + "ƒ#wType: #b" + ci.type + "ƒ#wVal: #r" + ((ci.attributes.Any()) ? ci.attributes.First().atvalue.ToString() : "N/A"));
+            }
+            parse.AddCol1("< or > to change creature, 'help' for help, What do you want to do?");
+            
+
+
+
+            parse.AddCol2("#cItem file: #w" + itemfile);
+            if (items.Any())
+            {
+                parse.AddCol2("Item Index:#c" + citem.templateindex);
+                parse.AddCol2("Name:#c" + citem.name + "ƒ#wType:#c" + citem.type);
+                parse.AddCol2("Desc:#c" + citem.desc);
+                parse.AddCol2("Attributes:");
+                foreach (ItemAttribute a in citem.attributes)
+                {
+                    parse.AddCol2("#y" + a.atname + "ƒ#b" + a.atvalue + "#w");
+                }
+
+            }
+            parse.AddCol2("[ or ] to change, 'equip' or 'remove', 'ifile' to choose item file");
+
+            parse.Display();
+
+
+            
+
+        }
         public void LaunchEditor()
         {
 

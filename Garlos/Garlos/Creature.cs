@@ -21,6 +21,7 @@ namespace Garlos
         public bool hostile;
         public string faction;
         public List<CreatureAttribute> cattributes;
+        public List<Item> citems;
 
 
 
@@ -38,6 +39,7 @@ namespace Garlos
             hostile = false;
             faction = "basic";
             cattributes = new List<CreatureAttribute>();
+            citems = new List<Item>();
         }
 
         public object Clone()
@@ -61,6 +63,10 @@ namespace Garlos
             foreach (CreatureAttribute ca in cattributes)
             {
                 Utility.Colorize("Attribute: #y" + ca.atname + "\t#wScore: #b" + ca.atvalue);
+            }
+            foreach (Item ci in citems)
+            {
+                Utility.Colorize("Item: #y" + ci.name + "\t#wType: #b" + ci.type + "\t#wVal: #r" + ((ci.attributes.Any()) ? ci.attributes.First().atvalue.ToString() : "N/A"));
             }
         }
         public void DisplayAttributes()

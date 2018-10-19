@@ -77,6 +77,20 @@ namespace Garlos
                         }
                         picked = true;
                     }
+                    if (Utility.WordMatch(choice, "description", picked))
+                    {
+                        keyw = Utility.GetKeyWord(choice);
+                        if (Utility.NotBlank(keyw))
+                        {
+                            citem.desc = keyw;
+                            Console.WriteLine("Items description changed to " + keyw);
+                        }
+                        else
+                        {
+                            Console.WriteLine("No description specified");
+                        }
+                        picked = true;
+                    }
                     if (Utility.WordMatch(choice, "type", picked))
                     {
                         keyw = Utility.GetKeyWord(choice);

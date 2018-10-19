@@ -72,6 +72,7 @@ namespace Garlos
         {
             Utility.Colorize("Item Index:#c" + templateindex);
             Utility.Colorize("Name:#c" + name + "\t#wType:#c" + type);
+            Utility.Colorize("Desc:#c" + desc);
             Console.WriteLine("Attributes:");
             foreach (ItemAttribute a in attributes)
             {
@@ -90,11 +91,11 @@ namespace Garlos
 
         public void FullDetails()
         {
-            Console.Write(name + " - " + type + "\n");
+            Utility.Colorize("Name:#c" + name + "\t#wType:#c" + type);
+            Utility.Colorize("Desc:#c" + desc);
             foreach (ItemAttribute a in attributes)
             {
-                Utility.Colorize(a.atname + " = " + a.atvalue);
-
+                Utility.Colorize("#y" + a.atname + "\t#b" + a.atvalue + "#w");
             }
         }
 
