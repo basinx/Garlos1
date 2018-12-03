@@ -23,6 +23,7 @@ namespace Garlos
         int count;
         int currentindex;
         int valuew;
+        int valuei;
         string choice;
         string filename;
         string tryfile;
@@ -139,6 +140,78 @@ namespace Garlos
                         else
                         {
                             Console.WriteLine("Invalid selection");
+                        }
+                        picked = true;
+                    }
+                    if (Utility.WordMatch(choice, "equip", picked))
+                    {
+                        if (citem != null)
+                        {
+                            ccreature.citems.Add(citem);
+                        }
+                        else
+                        {
+                            Console.WriteLine("No item");
+                        }
+                    }
+                    if (Utility.WordMatch(choice, "remove", picked))
+                    {
+                        string 
+                        keyw = Utility.GetKeyWord(choice);
+                        keyw.ToLower();
+                        if(ccreature.citems.Find(x => x.name.ToLower().Contains(keyw)) != null)
+                        {
+                            ccreature.citems.Remove(ccreature.citems.Find(x => x.name.ToLower().Contains(keyw)));
+                            Console.WriteLine("Item Removed");
+                        }
+                        else
+                        {
+                            Console.WriteLine("Creature not carrying an item by that name");
+                        }
+                    }
+                    if (Utility.WordMatch(choice, "[", picked) || Utility.WordMatch(choice, "{", picked))
+                    {
+                        if (citem != null)
+                        {
+                            valuei = items.IndexOf(citem) - 1;
+                            if (items.ElementAtOrDefault(valuei) != null)
+                            {
+                                citem = items.ElementAt(valuei);
+                                itemindex = valuei;
+
+                                Console.WriteLine("Switching to previous item, index " + valuei);
+                            }
+                            else
+                            {
+                                Console.WriteLine("No more items.");
+                            }
+                        }
+                        else
+                        {
+                            Console.WriteLine("No item file");
+                        }
+                        picked = true;
+                    }
+                    if (Utility.WordMatch(choice, "]", picked) || Utility.WordMatch(choice, "}", picked))
+                    {
+                        if (citem != null)
+                        {
+                            valuei = items.IndexOf(citem) + 1;
+                            if (items.ElementAtOrDefault(valuei) != null)
+                            {
+                                citem = items.ElementAt(valuei);
+                                itemindex = valuei;
+
+                                Console.WriteLine("Switching to next item, index " + valuei);
+                            }
+                            else
+                            {
+                                Console.WriteLine("No more items.");
+                            }
+                        }
+                        else
+                        {
+                            Console.WriteLine("No item file");
                         }
                         picked = true;
                     }
@@ -490,9 +563,10 @@ namespace Garlos
             {
                 parse.AddCol1("Attribute: #y" + ca.atname + "ƒ#wScore: #b" + ca.atvalue);
             }
+            parse.AddCol1("Items:");
             foreach (Item ci in ccreature.citems)
             {
-                Utility.Colorize("Item: #y" + ci.name + "ƒ#wType: #b" + ci.type + "ƒ#wVal: #r" + ((ci.attributes.Any()) ? ci.attributes.First().atvalue.ToString() : "N/A"));
+                parse.AddCol1("#y" + ci.name + "ƒ#wType: #b" + ci.type + "ƒ#wVal: #r" + ((ci.attributes.Any()) ? ci.attributes.First().atvalue.ToString() : "N/A"));
             }
             parse.AddCol1("< or > to change creature, 'help' for help, What do you want to do?");
             
