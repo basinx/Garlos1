@@ -69,6 +69,7 @@ namespace Garlos
                             {
                                 Console.WriteLine("Your character will be loaded!");
                                 character = saver.LoadData(character, option);
+                                character.refreshequipped();
                                 character.DisplayStats();
                             }
                             catch

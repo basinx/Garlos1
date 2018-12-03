@@ -13,6 +13,7 @@ namespace Garlos
         public int value = 10;
         public string type = "none";
         public int templateindex = 0;
+        
 
         public List<ItemAttribute> attributes = new List<ItemAttribute>();
         

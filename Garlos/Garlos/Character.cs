@@ -30,6 +30,7 @@ namespace Garlos
         public Item weapon;
         public Item armor;
         public Item shield;
+
         
         //{
         //get;
@@ -126,10 +127,32 @@ namespace Garlos
             calcstats();
             DisplayStats();
         }
+
+        public void refreshequipped()
+        {
+            if (weapon != null)
+            {
+                try { weapon = inventory.Find(x => x.name == weapon.name); }
+                catch { Console.WriteLine("Equipped weapon not found in inventory"); }
+            }
+            if (shield != null)
+            {
+                try { shield = inventory.Find(x => x.name == shield.name); }
+                catch { Console.WriteLine("Equipped weapon not found in inventory"); }
+            }
+            if (armor != null)
+            {
+                try { armor = inventory.Find(x => x.name == armor.name); }
+                catch { Console.WriteLine("Equipped weapon not found in inventory"); }
+            }
+
+        }
+
         public void startingequip()
         {
             inventory.Add(new Item("dagger", "weapon", "damage", 4));
             weapon = inventory.Last();
+            
             inventory.Add(new Item("cloin", "armor", "defense", 2));
             armor = inventory.Last();
             inventory.Add(new Item("buckler", "shield", "defense", 1));
