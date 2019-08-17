@@ -59,7 +59,7 @@
     <GenerateManifests>true</GenerateManifests>
   </PropertyGroup>
   <PropertyGroup>
-    <SignManifests>true</SignManifests>
+    <SignManifests>false</SignManifests>
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="System" />
@@ -102,7 +102,6 @@
     <Content Include="creature.creatures">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
-    <None Include="Garlos_TemporaryKey.pfx" />
     <Content Include="sample.game">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>

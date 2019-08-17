@@ -304,6 +304,17 @@ namespace Garlos
                         picked = true;
                         finished = true;
                     }
+                    if (Utility.WordMatch(choice, "help", picked))
+                    {
+                        Console.WriteLine("kill / fight = attack a creature");
+                        Console.WriteLine("stats = see your current stats");
+                        Console.WriteLine("look / inspect = take a closer look at something");
+                        Console.WriteLine("equip / wear = wear/wield a piece of equipment");
+                        Console.WriteLine("save = save your character");
+                        Console.WriteLine("inventory = check your inventory");
+                        Console.WriteLine("north/south/east/west = travel");
+                        picked = true;
+                    }
                     if (picked)
                     {
 
